@@ -1,7 +1,7 @@
 import { useState } from "react";
 import QuizData from './QuizData/QuizData.js';
 
-function MagicQuiz() {
+function TotalQuiz(props) {
     
     const [activeQuestion, setActiveQuestion] = useState(0)
     const [selectedAnswer, setSelectedAnswer] = useState('')
@@ -24,7 +24,7 @@ function MagicQuiz() {
                 }
             : { ...prev, wrongAnswers: prev.wrongAnswers + 1 }
         )
-        if (activeQuestion !== QuizData[0].content.length - 1) {
+        if (activeQuestion !== QuizData[props.number].content.length - 1) {
           setActiveQuestion((prev) => prev + 1)
         } else {
           setActiveQuestion(0)
@@ -51,12 +51,12 @@ function MagicQuiz() {
         })
     }
 
-    const { question, answerOptions, correct } = QuizData[0].content[activeQuestion]
+    const { question, answerOptions, correct } = QuizData[props.number].content[activeQuestion]
     const addLeadingZero = (number) => (number > 9 ? number : `0${number}`)
     
     return (
         <div>
-            <h1>{QuizData[0].title}</h1>
+            <h1>{QuizData[props.number].title}</h1>
             {!showResult ? (
             <div>
                 <div className='quiz-number'>
@@ -64,7 +64,7 @@ function MagicQuiz() {
                     {addLeadingZero(activeQuestion + 1)}
                     </span>
                     <span className="total-question">
-                    /{addLeadingZero(QuizData[0].content.length)}
+                    /{addLeadingZero(QuizData[props.number].content.length)}
                     </span>
                 </div>
                 <h2>{question}</h2>
@@ -76,15 +76,15 @@ function MagicQuiz() {
                     </li>
                     ))}
                 </ul>
-                <button onClick={onClickNext} disabled={selectedAnswerIndex === null}>{activeQuestion === QuizData[0].content.length - 1 ? 'Finish' : 'Next'}</button>
+                <button onClick={onClickNext} disabled={selectedAnswerIndex === null}>{activeQuestion === QuizData[props.number].content.length - 1 ? 'Finish' : 'Next'}</button>
             </div> ) : (
             <div className="result">
             <h3>Result</h3>
             <p>
-                Total Question: <span>{QuizData[0].content.length}</span>
+                Total Question: <span>{QuizData[props.number].content.length}</span>
             </p>
             <p>
-                Total Score:<span> {result.score}</span>
+                Total Score:<span> {100 * (result.correctAnswers / QuizData[props.number].content.length).toFixed(2)}</span>%
             </p>
             <p>
                 Correct Answers:<span> {result.correctAnswers}</span>
@@ -99,4 +99,4 @@ function MagicQuiz() {
     );
 }
 
-export default MagicQuiz;
+export default TotalQuiz;
