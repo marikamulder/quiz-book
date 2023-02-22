@@ -56,7 +56,9 @@ function TotalQuiz(props) {
     
     return (
         <div>
-            <h1>{QuizData[props.number].title}</h1>
+            <div className="quiz-title-container">
+            <h1 className="quiz-title">{QuizData[props.number].title}</h1>
+            </div>
             {!showResult ? (
             <div>
                 <div className='quiz-number'>

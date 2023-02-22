@@ -30,6 +30,34 @@ const QuizData = [
             correct: "Flareon",
         }]
     },
+    {title: 'Katekyo Hitman Reborn Quiz',
+    content:[
+        {
+            question: "Hibari has one weakness. What is it?",
+            answerOptions: [ 'Canaries', 'Cherry Blossoms', 'Pineapples', 'Roses',],
+            correct: "Cherry Blossoms",
+        },
+        {
+            question: "Who is the leader of the Varia?",
+            answerOptions: [ 'Squalo', 'Leviathan', 'Xanxus', 'Belphegor',],
+            correct: "Xanxus",
+        },
+        {
+            question: "The little canary bird that follows Hibari around has come to be known as what?",
+            answerOptions: [ 'Tweety', "Hibari's bird", 'Cabari', 'Hibird',],
+            correct: "Hibird",
+        },
+        {
+            question: "Xanxus's box animal is made of wwhich two flame aspects?",
+            answerOptions: [ 'Sky & rain', 'Sky & Lightning', 'Storm & Lightning', 'Sky & Storm',],
+            correct: "Sky & Storm",
+        },
+        {
+            question: "Knives and wire are whose main weapon?",
+            answerOptions: [ 'Belphegor', 'Squalo', 'Leviathan', 'Lussuria',],
+            correct: "Belphegor",
+        }]
+    },
     {title: 'Magic Quiz',
     content:[
         {
